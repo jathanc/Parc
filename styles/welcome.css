@@ -63,6 +63,12 @@ body {
   overflow: hidden; */
 }
 
+html{
+  background-color: green;
+  text-align: center;
+}
+
+
 h1 {
   font-size: 36pt;
   letter-spacing: 5px;
