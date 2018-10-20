@@ -55,6 +55,13 @@ class StartPage(webapp2.RequestHandler):
                 jinja_current_directory.get_template('templates/welcome.html')
         self.response.write(start_template.render())
 
+class HomePage(webapp2.RequestHandler):
+    def get(self):
+        home_template = \
+                jinja_current_directory.get_template('templates/home-page.html')
+        log_out_dict = {'logout_link' : users.create_logout_url('/')}
+        self.response.write(home_template.render(log_out_dict))
+
 class LoginPage(webapp2.RequestHandler):
     def get(self):
         login_template = \
@@ -129,7 +136,4 @@ app = webapp2.WSGIApplication([
     ('/', StartPage),
     ('/home', HomePage),
     ('/login', LoginPage),
-    ('/info_update', InfoUpdatePage),
-    ('/people', PeoplePage),
-    ('/img', ImagePage)
 ], debug=True)
